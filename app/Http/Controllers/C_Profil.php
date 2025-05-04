@@ -62,7 +62,7 @@ class C_Profil extends Controller
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
-
+        
         $user->save();
 
         return redirect()->route('profil.edit')->with('message', 'Profil berhasil diperbarui!');

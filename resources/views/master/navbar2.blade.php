@@ -21,8 +21,8 @@
 
         <!-- Dropdown -->
         <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50 py-2 text-sm">
-            <a href="{{ route('profil') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Data Akun</a>
-            <form method="POST" action="{{ url('/logout') }}">
+            <a href="{{ route('cabang.profil') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Data Akun</a>
+            <form method="POST" action="{{ route('logout.cabang') }}">
                 @csrf
                 <button type="submit" class="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100">Logout</button>
             </form>
