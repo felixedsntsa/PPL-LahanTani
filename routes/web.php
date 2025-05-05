@@ -4,10 +4,12 @@ use App\Http\Controllers\C_Login;
 use App\Http\Controllers\C_Cabang;
 use App\Http\Controllers\C_Profil;
 use App\Http\Controllers\C_Laporan;
-use App\Http\Controllers\C_AdminLaporan as AdminLaporanController;
-use App\Http\Controllers\C_AdminLaporan;
+use App\Http\Controllers\C_HasilPanen;
+use App\Http\Controllers\C_AdminHasilPanen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\C_AdminLaporan;
+use App\Http\Controllers\C_AdminLaporan as AdminLaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +82,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/laporan/{id}/feedback', [C_AdminLaporan::class, 'feedbackForm'])->name('admin.laporan.feedback');
     Route::post('/admin/laporan/{id}/feedback', [C_AdminLaporan::class, 'submitFeedback'])->name('admin.laporan.feedback.submit');
 });
+
+// HASIL PANEN CABANG
+Route::middleware('auth:cabang')->group(function () {
+    Route::get('/hasilpanen', [C_HasilPanen::class, 'index'])->name('cabang.hasilpanen');
+    Route::post('/hasilpanen', [C_HasilPanen::class, 'store'])->name('cabang.hasilpanen.store');
+});
+
+// HASIL PANEN ADMIN
+Route::get('/admin/hasilpanen', [C_AdminHasilPanen::class, 'index'])->name('admin.hasilpanen')->middleware('auth');

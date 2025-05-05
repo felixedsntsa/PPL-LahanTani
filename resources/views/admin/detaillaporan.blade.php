@@ -1,5 +1,5 @@
 @extends('master.public')
-@section('title', 'Dashboard Admin')
+@section('title', 'Detail Laporan')
 @section('content')
 
 @include('master.navbar')
@@ -10,7 +10,7 @@
         <div class="flex items-center justify-between mb-4">
             <h2 class="text-xl font-semibold">Detail Laporan</h2>
             <a href="{{ route('admin.laporan.feedback', $laporan->id) }}"
-                class="bg-green-800 text-white px-4 py-2 rounded hover:bg-green-900">
+                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
                 Beri Feedback
             </a>
         </div>

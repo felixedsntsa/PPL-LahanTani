@@ -11,7 +11,7 @@
         <div class="hidden md:flex space-x-8 items-center">
         <a href="{{ route('admin.laporan') }}" class="text-black hover:text-green-900 font-medium">Pemantauan</a>
         <a href="#" class="text-black hover:text-green-900 font-medium">Jadwal Kunjungan</a>
-        <a href="#" class="text-black hover:text-green-900 font-medium">Hasil Panen</a>
+        <a href="{{ route('admin.hasilpanen') }}" class="text-black hover:text-green-900 font-medium">Hasil Panen</a>
         <a href="#" class="text-black hover:text-green-900 font-medium">Hasil Jual</a>
 
         <!-- Profil Dropdown -->

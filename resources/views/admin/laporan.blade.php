@@ -1,5 +1,5 @@
 @extends('master.public')
-@section('title', 'Dashboard Admin')
+@section('title', 'Laporan Cabang')
 @section('content')
 
 @include('master.navbar')
