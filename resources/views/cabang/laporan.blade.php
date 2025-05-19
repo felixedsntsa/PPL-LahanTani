@@ -20,7 +20,7 @@
         <div class="flex justify-between items-center mb-4">
             <h3 class="text-xl font-semibold">Riwayat Laporan</h3>
             <a href="{{ route('cabang.laporan.create') }}"
-                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 text-sm">
+                class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm">
                 + Tambah Laporan
             </a>
         </div>
@@ -34,6 +34,7 @@
                         <th class="py-2 px-4">Deskripsi</th>
                         <th class="py-2 px-4">Dokumentasi</th>
                         <th class="py-2 px-4">Feedback</th>
+                        <th class="py-2 px-4"></th>
                     </tr>
                 </thead>
                 <tbody class="divide-y">
@@ -42,16 +43,24 @@
                             <td class="py-2 px-4">{{ $index + 1 }}</td>
                             <td class="py-2 px-4">{{ \Carbon\Carbon::parse($laporan->tanggal)->format('d-m-Y') }}</td>
                             <td class="py-2 px-4">
-                                <a href="{{ route('cabang.laporan.show', $laporan->id) }}" class="text-blue-600 hover:underline">
-                                    {{ \Illuminate\Support\Str::limit($laporan->deskripsi, 100, '...') }}
-                                </a>
+                                {{ \Illuminate\Support\Str::limit($laporan->deskripsi, 90, '...') }}
                             </td>
                             <td class="py-2 px-4 flex flex-wrap gap-2">
                                 @foreach ($laporan->dokumentasi as $doc)
                                     <img src="{{ asset('storage/' . $doc) }}" class="w-20 h-20 object-cover rounded">
                                 @endforeach
                             </td>
-                            <td class="py-2 px-4">{{ $laporan->feedback ?? '-' }}</td>
+                            <td class="py-2 px-4">
+                                <div class="flex items-center justify-between gap-2">
+                                    <span>{{ $laporan->feedback ?? '-' }}</span>
+                                </div>
+                            </td>
+                            <td class="py-2 px-4">
+                                <a href="{{ route('cabang.laporan.show', $laporan->id) }}"
+                                    class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm">
+                                    Selengkapnya
+                                </a>
+                            </td>
                         </tr>
                     @empty
                         <tr>

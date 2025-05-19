@@ -30,6 +30,10 @@
                 <p>{{ $user->lokasi ?? '-' }}</p>
             </div>
             <div>
+                <label class="font-semibold">Status:</label>
+                <p>{{ $user->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</p>
+            </div>
+            <div>
                 <label class="font-semibold">Password:</label>
                 <p class="italic text-gray-500">Tersimpan secara aman</p>
             </div>

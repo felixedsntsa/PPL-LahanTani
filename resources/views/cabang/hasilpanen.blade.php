@@ -74,18 +74,34 @@
         </div>
     </div>
 
-    <!-- Modal Detail -->
+    <!-- Modal Detail - Cabang -->
     <div x-show="showDetail" class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-lg w-[400px] relative" @click.away="showDetail = false">
-            <button @click="showDetail = false" class="absolute top-2 right-3 text-xl">&times;</button>
+        <div class="bg-white rounded-2xl shadow-lg w-full max-w-md mx-auto p-6 relative" @click.away="showDetail = false">
+            <!-- Tombol Close -->
+            <button @click="showDetail = false" class="absolute top-3 right-4 text-2xl text-gray-600 hover:text-black">&times;</button>
 
-            <h2 class="text-lg font-semibold mb-4">Detail Hasil Panen</h2>
+            <!-- Judul -->
+            <h2 class="text-xl font-semibold mb-5 text-center">Laporan Hasil Panen</h2>
 
-            <p><strong>Tanggal:</strong> <span x-text="new Date(detailData.created_at).toLocaleDateString('id-ID')"></span></p>
-            <p><strong>Periode Panen:</strong> <span x-text="detailData.periode_panen"></span></p>
-            <p><strong>Total Panen:</strong> <span x-text="detailData.total_panen"></span></p>
-            <p><strong>Keterangan:</strong></p>
-            <p class="text-gray-700 mt-1 text-justify" x-text="detailData.keterangan || '-'"></p>
+            <!-- Field Detail -->
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
+                    <input type="text" class="w-full border rounded px-3 py-2 bg-gray-100" x-bind:value="new Date(detailData.created_at).toLocaleDateString('id-ID')" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Periode panen</label>
+                    <input type="text" class="w-full border rounded px-3 py-2 bg-gray-100" x-bind:value="detailData.periode_panen" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Total panen</label>
+                    <input type="text" class="w-full border rounded px-3 py-2 bg-gray-100" x-bind:value="detailData.total_panen" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Keterangan</label>
+                    <textarea class="w-full border rounded px-3 py-2 bg-gray-100" rows="4" x-text="detailData.keterangan || '-'" readonly></textarea>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/asset/melonfavicon.png" type="image/x-icon">
     @vite('resources/css/app.css', 'resources/js/app.js')
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
     <link
@@ -23,7 +24,7 @@
             -webkit-text-stroke: 3px white;
             color: transparent;
             background-image: url('asset/bgmelon.png');
-                background-size: cover;
+            background-size: cover;
             background-position: center;
             -webkit-background-clip: text;
             background-clip: text;

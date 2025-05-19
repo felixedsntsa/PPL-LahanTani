@@ -9,6 +9,7 @@
             <img src="asset/melonrepo.svg" alt="" class="w-20 mb-5">
         </div>
         <h1 class="text-3xl font-extrabold text-center text-green-600 mb-8">LahanTani</h1>
+
             @if ($errors->any())
                 <div class="mb-4 w-full max-w-md bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                     <strong class="font-bold">Terjadi kesalahan:</strong>
@@ -19,6 +20,19 @@
                     </ul>
                 </div>
             @endif
+            @if (session('error'))
+                <div class="flex justify-center"> <!-- Parent container untuk mengatur posisi horizontal -->
+                    <div class="flex items-center gap-3 border border-red-500 bg-gray-100 text-red-700 px-4 py-2 rounded-full mb-4 w-fit">
+                        <!-- Icon lingkaran dengan X -->
+                        <div class="w-5 h-5 border border-red-500 rounded-full flex items-center justify-center text-sm font-bold">
+                            &times;
+                        </div>
+                        <span class="text-sm font-medium">Email/Password tidak valid</span>
+                    </div>
+                </div>
+            @endif
+
+
         <form method="POST" action="{{ route('login.proses') }}">
             @csrf
             <!-- Email Input -->

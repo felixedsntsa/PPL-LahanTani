@@ -4,7 +4,7 @@
         <!-- Logo -->
         <div class="flex items-center">
             <img src="/asset/melonrepo.svg" alt="" class="w-9 mr-3">
-            <h1 class="text-3xl font-bold text-green-900"><a href="">LahanTani</a></h1>
+            <h1 class="text-3xl font-bold text-green-900"><a href="{{ url('/admin/dashboard') }}">LahanTani</a></h1>
         </div>
 
         <!-- Navigation Links -->

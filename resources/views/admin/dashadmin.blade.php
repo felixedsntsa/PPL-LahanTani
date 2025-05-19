@@ -12,7 +12,7 @@
                 Solusi Digital untuk Budidaya Buah <span class="text-green-700">Melon</span>
             </h2>
             <p class="text-gray-600 max-w-md mb-6">Aplikasi berbasis web yang dirancang untuk membantu mengelola dan memantau ladang melon secara daring.</p>
-            <a href="#" class="mt-6 bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md font-medium gap-4">Mulai Sekarang</a>
+            <a href="{{ route('admin.laporan') }}" class="mt-6 bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md font-medium gap-4">Mulai Sekarang</a>
         </div>
         <img src="/asset/bglaptop.png" alt="Laptop Screenshot" class="w-2/3 md:w-1/3 mt-10 md:mt-0">
     </section>

@@ -23,16 +23,16 @@ class C_Login extends Controller
         // Untuk admin login
         if (Auth::guard('web')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin/dashboard'); // ganti sesuai route dashboard admin kamu
+            return redirect()->intended('/admin/dashboard');
         }
 
         // Untuk cabang login
         if (Auth::guard('cabang')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/cabang/dashboard'); // Ganti dengan route dashboard cabang
+            return redirect()->intended('/cabang/dashboard');
         }
 
-        return back()->with('error', 'Email atau password salah.');
+        return back()->with('error', 'Email atau password tidak valid.');
     }
 
     public function logout(Request $request)
