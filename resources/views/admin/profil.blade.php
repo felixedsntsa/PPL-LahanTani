@@ -23,9 +23,8 @@
             </div>
         </div>
 
-        <div class="mt-6 flex justify-between">
-            <a href="{{ url('/admin/dashboard') }}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Kembali</a>
-            <a href="{{ route('profil.edit') }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Ubah</a>
+        <div class="mt-6 flex justify-end">
+            <a href="{{ route('profil.edit') }}" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Ubah</a>
         </div>
     </div>
 </div>

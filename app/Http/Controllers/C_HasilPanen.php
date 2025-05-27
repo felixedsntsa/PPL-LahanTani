@@ -9,7 +9,7 @@ class C_HasilPanen extends Controller
 {
     public function index()
     {
-        $hasilPanens = HasilPanen::with('cabang')->latest()->get();
+        $hasilPanens = HasilPanen::where('cabang_id', auth('cabang')->id())->latest()->get();
         return view('cabang.hasilpanen', compact('hasilPanens'));
     }
 

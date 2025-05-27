@@ -53,9 +53,9 @@
                 </div>
             </div>
 
-            <div class="mt-6 flex justify-between">
-                <a href="{{ url('/admin/dashboard') }}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Batal</a>
-                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Simpan Perubahan</button>
+            <div class="mt-6 flex justify-end gap-3">
+                <a href="{{ url('/admin/dashboard') }}" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">Batal</a>
+                <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Simpan</button>
             </div>
         </form>
     </div>

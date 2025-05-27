@@ -7,10 +7,9 @@
     <div>
         <h4 class="font-bold text-lg">Navigasi</h4>
         <ul class="space-y-1">
-            <li><a href="{{ route('admin.laporan') }}" class="hover:underline">Pemantauan</a></li>
-            <li><a href="{{ route('admin.jadwal.index') }}" class="hover:underline">Jadwal kunjungan</a></li>
-            <li><a href="{{ route('admin.hasilpanen') }}" class="hover:underline">Hasil Panen</a></li>
-            <li><a href="{{ route('admin.hasilpenjualan.index') }}" class="hover:underline">Hasil Jual</a></li>
+            <li><a href="{{ route('cabang.laporan') }}" class="hover:underline">Pemantauan</a></li>
+            <li><a href="#" class="hover:underline">Jadwal kunjungan</a></li>
+            <li><a href="{{ route('cabang.hasilpanen') }}" class="hover:underline">Hasil Panen</a></li>
         </ul>
     </div>
     <div>

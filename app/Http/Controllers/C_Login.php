@@ -40,7 +40,7 @@ class C_Login extends Controller
         Auth::guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function logoutCabang(Request $request)
@@ -48,7 +48,7 @@ class C_Login extends Controller
         Auth::guard('cabang')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login'); // arahkan ke halaman login cabang
+        return redirect('/');
     }
 
 

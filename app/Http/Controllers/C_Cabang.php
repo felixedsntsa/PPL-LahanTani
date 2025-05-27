@@ -32,6 +32,7 @@ class C_Cabang extends Controller
     public function updateProfilCabang(Request $request)
     {
         $cabang = Auth::guard('cabang')->user();
+        $cabang = auth('cabang')->user();
 
         $request->validate([
             'nama' => 'required|string|max:100',
@@ -42,8 +43,6 @@ class C_Cabang extends Controller
             'password' => 'nullable|string|min:6|confirmed',
         ]);
 
-        $cabang = auth('cabang')->user();
-        dd(get_class($cabang));
         $cabang->nama = $request->nama;
         $cabang->email = $request->email;
         $cabang->nama_pekerja = $request->nama_pekerja;

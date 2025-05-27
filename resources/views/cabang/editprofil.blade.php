@@ -42,9 +42,18 @@
             </div>
 
             <div class="mb-4">
-                <label class="block font-semibold">Lokasi</label>
+                <label class="block font-semibold">Lokasi Lahan</label>
                 <input type="text" name="lokasi" value="{{ old('lokasi', $user->lokasi) }}" class="w-full px-4 py-2 border rounded">
                 @error('lokasi') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            </div>
+
+            <div class="mb-4">
+                <label class="block font-semibold">Status</label>
+                <select name="status" class="w-full px-4 py-2 border rounded">
+                    <option value="1" {{ old('status', $user->status) == 1 ? 'selected' : '' }}>Aktif</option>
+                    <option value="0" {{ old('status', $user->status) == 0 ? 'selected' : '' }}>Tidak Aktif</option>
+                </select>
+                @error('status') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
             </div>
 
             <div class="mb-4">
@@ -59,9 +68,9 @@
                 <input type="password" name="password_confirmation" class="w-full px-4 py-2 border rounded">
             </div>
 
-            <div class="flex justify-between">
-                <a href="{{ url('/cabang/dashboard') }}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Batal</a>
-                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Simpan Perubahan</button>
+            <div class="flex justify-end gap-3">
+                <a href="{{ url('/cabang/dashboard') }}" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">Batal</a>
+                <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Simpan Perubahan</button>
             </div>
         </form>
     </div>

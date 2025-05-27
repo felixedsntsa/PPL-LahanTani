@@ -18,7 +18,7 @@
     </section>
 
     {{-- Fitur Section --}}
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6 mb-4">
         <!-- Kartu 1 -->
         <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden group">
             <div class="absolute top-0 left-0 w-12 h-12 bg-yellow-400 rounded-br-xl flex items-center justify-center">

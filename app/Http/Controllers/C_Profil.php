@@ -48,21 +48,21 @@ class C_Profil extends Controller
 
     public function updateProfil(Request $request)
     {
+        $user = auth()->user();
+
         $request->validate([
             'username' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . auth()->id(),
+            'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:6|confirmed',
         ]);
 
-        $user = auth()->user();
-        dd(get_class($user));
         $user->username = $request->username;
         $user->email = $request->email;
 
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
-        
+
         $user->save();
 
         return redirect()->route('profil.edit')->with('message', 'Profil berhasil diperbarui!');

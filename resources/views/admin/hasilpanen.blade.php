@@ -6,12 +6,30 @@
 
 <div x-data="panenDetail()" class="container mx-auto px-4 py-6">
 
+    <h2 class="text-xl font-bold mb-2">Hasil Panen</h2>
     <div class="bg-white shadow rounded-lg p-6">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-bold">Hasil Panen</h2>
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center mb-4 mt-3 ml-3">
+            <form method="GET" action="{{ route('admin.hasilpanen') }}" class="w-full max-w-sm">
+                <div class="relative">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Cari hasil panen..."
+                        value="{{ request('search') }}"
+                        class="w-full border border-gray-300 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-1 focus:ring-green-300
+"
+                    />
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+                        </svg>
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <div class="overflow-x-auto">
             <table class="min-w-full text-sm text-left border border-gray-200">
                 <thead class="bg-gray-100 text-gray-700 font-semibold">
                     <tr>
@@ -51,6 +69,9 @@
                     @endforelse
                 </tbody>
             </table>
+            <div class="mt-4">
+                {{ $hasilPanens->links() }}
+            </div>
         </div>
     </div>
 
@@ -110,7 +131,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
     <div id="print-area" style="display: none;"></div>
 

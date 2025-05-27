@@ -6,9 +6,19 @@ use Illuminate\Http\Request;
 
 class C_AdminLaporan extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $laporans = Laporan::with('cabang')->latest()->get();
+        $query = Laporan::with('cabang')->latest();
+
+        if ($request->has('search')) {
+            $search = $request->search;
+            $query->whereHas('cabang', function ($q) use ($search) {
+                $q->where('nama', 'like', "%$search%");
+            })->orWhere('deskripsi', 'like', "%$search%")
+            ->orWhere('feedback', 'like', "%$search%");
+        }
+
+        $laporans = $query->simplePaginate(10);
         return view('admin.laporan', compact('laporans'));
     }
 

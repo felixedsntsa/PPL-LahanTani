@@ -6,6 +6,9 @@ use App\Http\Controllers\C_Profil;
 use App\Http\Controllers\C_Laporan;
 use App\Http\Controllers\C_HasilPanen;
 use App\Http\Controllers\C_AdminHasilPanen;
+use App\Http\Controllers\C_HasilPenjualan;
+use App\Http\Controllers\C_AdminJadwalKunjungan;
+use App\Http\Controllers\C_CabangJadwalKunjungan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\C_AdminLaporan;
@@ -91,3 +94,22 @@ Route::middleware('auth:cabang')->group(function () {
 
 // HASIL PANEN ADMIN
 Route::get('/admin/hasilpanen', [C_AdminHasilPanen::class, 'index'])->name('admin.hasilpanen')->middleware('auth');
+
+// HASIL JUAL ADMIN
+Route::get('/admin/hasilpenjualan', [C_HasilPenjualan::class, 'index'])->name('admin.hasilpenjualan.index');
+Route::post('/admin/hasilpenjualan', [C_HasilPenjualan::class, 'store'])->name('admin.hasilpenjualan.store');
+
+// JADWAL KUNJUNGAN ADMIN
+Route::middleware('auth')->group(function () {
+    Route::get('/jadwal-kunjungan', [C_AdminJadwalKunjungan::class, 'index'])->name('admin.jadwal.index');
+    Route::get('/jadwal-kunjungan/events', [C_AdminJadwalKunjungan::class, 'events'])->name('admin.jadwal.events');
+    Route::post('/jadwal-kunjungan', [C_AdminJadwalKunjungan::class, 'store'])->name('admin.jadwal.store');
+    Route::get('/jadwal-kunjungan/{id}/edit', [C_AdminJadwalKunjungan::class, 'edit']);
+    Route::post('/jadwal-kunjungan/{id}', [C_AdminJadwalKunjungan::class, 'update'])->name('admin.jadwal.update');
+});
+
+// JADWAL KUNJUNGAN CABANG
+Route::middleware('auth:cabang')->group(function () {
+    Route::get('/jadwal-cabang', [C_CabangJadwalKunjungan::class, 'index'])->name('cabang.jadwal.index');
+    Route::get('/jadwal-cabang/events', [C_CabangJadwalKunjungan::class, 'events'])->name('cabang.jadwal.events');
+});

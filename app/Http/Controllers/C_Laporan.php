@@ -47,6 +47,6 @@ class C_Laporan extends Controller
             'dokumentasi' => $paths,
         ]);
 
-        return redirect()->back()->with('success', 'Laporan berhasil dikirim.');
+        return redirect()->route('cabang.laporan')->with('success', 'Laporan berhasil dikirim.');
     }
 }

@@ -1,5 +1,5 @@
 {{-- Navbar --}}
-<nav class="bg-[#539442]/60 py-4 shadow-md border-b">
+<nav class="bg-[#539442]/60 py-4 shadow-lg border-b">
     <div class="container mx-auto px-4 flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center">
@@ -10,9 +10,9 @@
         <!-- Navigation Links -->
         <div class="hidden md:flex space-x-8 items-center">
         <a href="{{ route('admin.laporan') }}" class="text-black hover:text-green-900 font-medium">Pemantauan</a>
-        <a href="#" class="text-black hover:text-green-900 font-medium">Jadwal Kunjungan</a>
+        <a href="{{ route('admin.jadwal.index') }}" class="text-black hover:text-green-900 font-medium">Jadwal Kunjungan</a>
         <a href="{{ route('admin.hasilpanen') }}" class="text-black hover:text-green-900 font-medium">Hasil Panen</a>
-        <a href="#" class="text-black hover:text-green-900 font-medium">Hasil Jual</a>
+        <a href="{{ route('admin.hasilpenjualan.index') }}" class="text-black hover:text-green-900 font-medium">Hasil Jual</a>
 
         <!-- Profil Dropdown -->
         <div x-data="{ open: false }" class="relative">

@@ -12,54 +12,43 @@
                 Solusi Digital untuk Budidaya Buah <span class="text-green-700">Melon</span>
             </h2>
             <p class="text-gray-600 max-w-md mb-6">Aplikasi berbasis web yang dirancang untuk membantu mengelola dan memantau ladang melon secara daring.</p>
-            <a href="#" class="mt-6 bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md font-medium gap-4">Mulai Sekarang</a>
+            <a href="{{ route('cabang.laporan') }}" class="mt-6 bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md font-medium gap-4">Mulai Sekarang</a>
         </div>
         <img src="/asset/bglaptop.png" alt="Laptop Screenshot" class="w-2/3 md:w-1/3 mt-10 md:mt-0">
     </section>
 
     {{-- Fitur Section --}}
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
+    <div class="flex flex-wrap justify-evenly gap-4 p-6">
         <!-- Kartu 1 -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden group">
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden group w-64">
             <div class="absolute top-0 left-0 w-12 h-12 bg-yellow-400 rounded-br-xl flex items-center justify-center">
-            <img src="/asset/pemantauan.svg" class="w-7">
-        </div>
-        <div class="p-6 mt-8">
-            <h3 class="font-bold text-lg group-hover:text-yellow-600 transition">Pemantauan</h3>
-            <p class="text-sm text-gray-500">Pemantauan Lahan Melon</p>
-        </div>
+                <img src="/asset/pemantauan.svg" class="w-7">
+            </div>
+            <div class="p-6 mt-8">
+                <h3 class="font-bold text-lg group-hover:text-yellow-600 transition">Pemantauan</h3>
+                <p class="text-sm text-gray-500">Pemantauan Lahan Melon</p>
+            </div>
         </div>
 
         <!-- Kartu 2 -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden group">
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden group w-64">
             <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 rounded-br-xl flex items-center justify-center">
-            <img src="/asset/calendar.svg" class="w-7">
+                <img src="/asset/calendar.svg" class="w-7">
             </div>
             <div class="p-6 mt-8">
                 <h3 class="font-bold text-lg group-hover:text-red-500 transition">Jadwal Kunjungan</h3>
-            <p class="text-sm text-gray-500">Kunjungan Ke Lahan Melon</p>
+                <p class="text-sm text-gray-500">Kunjungan Ke Lahan Melon</p>
             </div>
         </div>
 
         <!-- Kartu 3 -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden group">
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden group w-64">
             <div class="absolute top-0 left-0 w-12 h-12 bg-sky-500 rounded-br-xl flex items-center justify-center">
-            <img src="/asset/bill.svg" class="w-7">
+                <img src="/asset/bill.svg" class="w-7">
             </div>
             <div class="p-6 mt-8">
                 <h3 class="font-bold text-lg group-hover:text-sky-500 transition">Hasil Panen</h3>
                 <p class="text-sm text-gray-500">Laporan Hasil Panen</p>
-            </div>
-        </div>
-
-        <!-- Kartu 4 -->
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden group">
-            <div class="absolute top-0 left-0 w-12 h-12 bg-purple-500 rounded-br-xl flex items-center justify-center">
-                <img src="/asset/money.svg" class="w-7">
-            </div>
-            <div class="p-6 mt-8">
-                <h3 class="font-bold text-lg group-hover:text-purple-500 transition">Hasil Jual</h3>
-            <p class="text-sm text-gray-500">Grafik Pendapatan</p>
             </div>
         </div>
     </div>
@@ -93,6 +82,6 @@
         </div>
     </section>
 
-    @include('master.footer')
+    @include('master.footer2')
 
 @endsection
