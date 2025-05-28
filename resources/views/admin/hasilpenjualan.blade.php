@@ -25,8 +25,7 @@
         <div class="w-5/6 p-6">
             <div class="bg-white shadow p-6 rounded relative">
                 <!-- Header Chart + Tombol -->
-                <div class="flex justify-between items-center mb-4">
-                    <div class="text-lg font-semibold text-gray-700">Hasil Pendapatan</div>
+                <div class="flex justify-end items-center mb-4">
                     <button onclick="toggleModal(true)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
                         Tambah Pendapatan
                     </button>
@@ -76,7 +75,6 @@
                 data: {!! json_encode($jumlahs) !!},
                 borderColor: 'red',
                 backgroundColor: 'red',
-                tension: 0.4
             }]
         },
         options: {
@@ -95,9 +93,14 @@
                 legend: {
                     display: true,
                     labels: {
-                        usePointStyle: true,
+                        usePointStyle: false,
                         color: 'black',
-                        boxWidth: 20
+                        boxWidth: 35,
+                        boxHeight: 15,
+                        font: {
+                            size: 15,
+                            weight: 'bold'
+                        }
                     }
                 }
             }
