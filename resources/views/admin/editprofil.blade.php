@@ -16,7 +16,7 @@
 
         <form action="{{ route('profil.update') }}" method="POST">
             @csrf
-            @method('PUT')
+            {{-- @method('PUT') --}}
 
             <div class="space-y-4">
                 <div>

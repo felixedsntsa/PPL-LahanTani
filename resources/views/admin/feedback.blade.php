@@ -56,7 +56,7 @@
                     type="submit"
                     class="bg-green-600 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-700 transition duration-200"
                 >
-                    Kirim
+                    Simpan
                 </button>
             </div>
         </form>

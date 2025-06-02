@@ -18,7 +18,7 @@ class C_Profil extends Controller
             $query->where('nama', 'like', '%' . $nama . '%');
         }
 
-        $cabang = $query->paginate(6); // pagination
+        $cabang = $query->simplePaginate(10);
 
         return view('admin.akuncabang', compact('cabang', 'nama'));
     }

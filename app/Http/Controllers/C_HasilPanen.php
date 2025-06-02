@@ -7,9 +7,23 @@ use Illuminate\Http\Request;
 
 class C_HasilPanen extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $hasilPanens = HasilPanen::where('cabang_id', auth('cabang')->id())->latest()->get();
+        $query = HasilPanen::with('cabang')->where('cabang_id', auth('cabang')->id());
+
+        if ($request->has('search')) {
+            $search = $request->search;
+
+            $query->where(function($q) use ($search) {
+                $q->where('periode_panen', 'like', "%$search%")
+                    ->orWhereHas('cabang', function ($q2) use ($search) {
+                    $q2->where('nama', 'like', "%$search%"); 
+                });
+            });
+        }
+
+        $hasilPanens = $query->latest()->get();
+
         return view('cabang.hasilpanen', compact('hasilPanens'));
     }
 

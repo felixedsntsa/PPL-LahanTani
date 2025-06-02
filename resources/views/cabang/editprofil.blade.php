@@ -5,8 +5,10 @@
 @include('master.navbar2')
 
 <div class="container mx-auto px-4 py-6">
-    <div class="bg-white p-6 rounded-lg shadow-lg max-w-xl mx-auto border">
-        <h2 class="text-2xl font-bold mb-6 text-green-700">Edit Profil Cabang</h2>
+    <div class="bg-white p-8 rounded-xl shadow max-w-2xl mx-auto border border-gray-200">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Profil Saya</h2>
+        <p class="text-gray-600 mb-6">Kelola informasi profil Anda untuk mengobrol, melindungi dan mengamankan akun</p>
+        <hr class="mb-6">
 
         @if(session('message'))
             <div class="mb-4 p-3 bg-green-100 text-green-800 rounded">
@@ -17,60 +19,71 @@
         <form method="POST" action="{{ route('cabang.profil.update') }}">
             @csrf
 
-            <div class="mb-4">
-                <label class="block font-semibold">Nama Cabang</label>
-                <input type="text" name="nama" value="{{ old('nama', $user->nama) }}" class="w-full px-4 py-2 border rounded">
-                @error('nama') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            {{-- Nama Cabang --}}
+            <div class="mb-4 flex items-center">
+                <label class="w-1/3 font-semibold text-gray-700">Nama Cabang</label>
+                <input type="text" name="nama" value="{{ old('nama', $user->nama) }}"
+                    class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-green-500">
             </div>
+            @error('nama') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
 
-            <div class="mb-4">
-                <label class="block font-semibold">Email</label>
-                <input type="email" name="email" value="{{ old('email', $user->email) }}" class="w-full px-4 py-2 border rounded">
-                @error('email') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            {{-- Email --}}
+            <div class="mb-4 flex items-center">
+                <label class="w-1/3 font-semibold text-gray-700">Email</label>
+                <input type="email" name="email" value="{{ old('email', $user->email) }}"
+                    class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-green-500">
             </div>
+            @error('email') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
 
-            <div class="mb-4">
-                <label class="block font-semibold">Nama Pekerja</label>
-                <input type="text" name="nama_pekerja" value="{{ old('nama_pekerja', $user->nama_pekerja) }}" class="w-full px-4 py-2 border rounded">
-                @error('nama_pekerja') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            {{-- Password --}}
+            <div class="mb-4 flex items-center">
+                <label class="w-1/3 font-semibold text-gray-700">Password</label>
+                <input type="password" name="password"
+                    class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-green-500">
             </div>
+            @error('password') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
 
-            <div class="mb-4">
-                <label class="block font-semibold">No HP</label>
-                <input type="text" name="no_hp" value="{{ old('no_hp', $user->no_hp) }}" class="w-full px-4 py-2 border rounded">
-                @error('no_hp') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            {{-- Nama Pekerja --}}
+            <div class="mb-4 flex items-center">
+                <label class="w-1/3 font-semibold text-gray-700">Nama Pekerja</label>
+                <input type="text" name="nama_pekerja" value="{{ old('nama_pekerja', $user->nama_pekerja) }}"
+                    class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-green-500">
             </div>
+            @error('nama_pekerja') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
 
-            <div class="mb-4">
-                <label class="block font-semibold">Lokasi Lahan</label>
-                <input type="text" name="lokasi" value="{{ old('lokasi', $user->lokasi) }}" class="w-full px-4 py-2 border rounded">
-                @error('lokasi') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            {{-- No HP --}}
+            <div class="mb-4 flex items-center">
+                <label class="w-1/3 font-semibold text-gray-700">Nomor HP</label>
+                <input type="text" name="no_hp" value="{{ old('no_hp', $user->no_hp) }}"
+                    class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-green-500">
             </div>
+            @error('no_hp') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
 
-            <div class="mb-4">
-                <label class="block font-semibold">Status</label>
-                <select name="status" class="w-full px-4 py-2 border rounded">
+            {{-- Lokasi --}}
+            <div class="mb-4 flex items-center">
+                <label class="w-1/3 font-semibold text-gray-700">Lokasi Lahan</label>
+                <input type="text" name="lokasi" value="{{ old('lokasi', $user->lokasi) }}"
+                    class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-green-500">
+            </div>
+            @error('lokasi') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
+
+            {{-- Status --}}
+            <div class="mb-6 flex items-center">
+                <label class="w-1/3 font-semibold text-gray-700">Status</label>
+                <select name="status"
+                    class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-green-500">
+                    <option disabled selected>Pilih</option>
                     <option value="1" {{ old('status', $user->status) == 1 ? 'selected' : '' }}>Aktif</option>
                     <option value="0" {{ old('status', $user->status) == 0 ? 'selected' : '' }}>Tidak Aktif</option>
                 </select>
-                @error('status') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
             </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Password Baru</label>
-                <input type="password" name="password" class="w-full px-4 py-2 border rounded">
-                @error('password') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
-                <p class="text-sm text-gray-500">Kosongkan jika tidak ingin mengubah password.</p>
-            </div>
-
-            <div class="mb-6">
-                <label class="block font-semibold">Konfirmasi Password Baru</label>
-                <input type="password" name="password_confirmation" class="w-full px-4 py-2 border rounded">
-            </div>
+            @error('status') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
 
             <div class="flex justify-end gap-3">
-                <a href="{{ url('/cabang/dashboard') }}" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">Batal</a>
-                <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Simpan Perubahan</button>
+                <a href="{{ url('/profilcabang') }}"
+                    class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition">Batal</a>
+                <button type="submit"
+                    class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">Simpan</button>
             </div>
         </form>
     </div>

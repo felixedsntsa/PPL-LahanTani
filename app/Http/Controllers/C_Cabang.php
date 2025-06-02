@@ -55,7 +55,7 @@ class C_Cabang extends Controller
 
         $cabang->save();
 
-        return redirect()->route('cabang.profil.edit')->with('message', 'Profil berhasil diperbarui!');
+        return redirect()->route('cabang.profil')->with('message', 'Profil berhasil diperbarui!');
     }
 
 }

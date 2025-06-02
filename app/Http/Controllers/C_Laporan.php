@@ -8,9 +8,16 @@ use App\Models\Laporan;
 
 class C_Laporan extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $laporans = Laporan::where('cabang_id', auth('cabang')->id())->latest()->get();
+        $query = Laporan::where('cabang_id', auth('cabang')->id());
+
+        if ($request->has('search')) {
+            $search = $request->search;
+            $query->where('tanggal', 'like', "%$search%");
+        }
+
+        $laporans = $query->latest()->get();
         return view('cabang.laporan', compact('laporans'));
     }
 

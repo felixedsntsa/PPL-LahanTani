@@ -6,7 +6,7 @@
 
 <div class="container mx-auto px-4 py-6">
     <div class="bg-white p-6 rounded-lg shadow-lg border">
-        <h2 class="text-2xl font-bold mb-4 text-green-700">Detail Cabang: {{ $cabang->nama }}</h2>
+        <h2 class="text-2xl font-bold mb-4 text-green-700">Detail Cabang</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
