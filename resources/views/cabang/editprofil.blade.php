@@ -4,7 +4,7 @@
 
 @include('master.navbar2')
 
-<div class="container mx-auto px-4 py-6">
+<div class="container mx-auto px-4 py-6 mb-4">
     <div class="bg-white p-8 rounded-xl shadow max-w-2xl mx-auto border border-gray-200">
         <h2 class="text-3xl font-bold text-gray-800 mb-2">Profil Saya</h2>
         <p class="text-gray-600 mb-6">Kelola informasi profil Anda untuk mengobrol, melindungi dan mengamankan akun</p>
@@ -43,6 +43,14 @@
             </div>
             @error('password') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
 
+            {{-- Konfirmasi Password --}}
+            <div class="mb-4 flex items-center">
+                <label class="w-1/3 font-semibold text-gray-700">Konfirmasi Password</label>
+                <input type="password" name="password_confirmation"
+                    class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-green-500">
+            </div>
+            @error('password_confirmation') <p class="text-red-500 text-sm text-right w-full">{{ $message }}</p> @enderror
+            
             {{-- Nama Pekerja --}}
             <div class="mb-4 flex items-center">
                 <label class="w-1/3 font-semibold text-gray-700">Nama Pekerja</label>
@@ -88,5 +96,7 @@
         </form>
     </div>
 </div>
+
+@include('master.footer2')
 
 @endsection

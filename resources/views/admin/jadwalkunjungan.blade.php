@@ -4,7 +4,7 @@
 
 @include('master.navbar')
 
-    <div class="p-6">
+    <div class="p-6 mb-16">
         <div class="flex justify-between items-center mb-4 mt-4">
             <h2 class="text-xl font-bold mb-4">Jadwal Kunjungan</h2>
             <button onclick="toggleModal(true)" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 mb-4">Tambah Jadwal</button>
@@ -110,6 +110,8 @@
 <div id="toast-success" class="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg hidden z-[9999]">
     Jadwal berhasil diperbarui!
 </div>
+
+@include('master.footer')
 
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
 <script>

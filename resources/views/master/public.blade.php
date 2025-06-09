@@ -21,14 +21,14 @@
     <title>LahanTani | @yield('title')</title>
     <style>
             .outline-text {
-            -webkit-text-stroke: 3px white;
+            -webkit-text-stroke: 2px whitesmoke;
             color: transparent;
-            background-image: url('asset/bgmelon.png');
-            background-size: cover;
+            background-image: url('asset/plantmelon.jpg');
+            background-size: contain;
             background-position: center;
             -webkit-background-clip: text;
             background-clip: text;
-            filter: brightness(1.1);
+            filter: brightness(1);
         }
     </style>
 </head>

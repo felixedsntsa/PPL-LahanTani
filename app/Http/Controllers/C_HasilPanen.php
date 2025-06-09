@@ -9,6 +9,10 @@ class C_HasilPanen extends Controller
 {
     public function index(Request $request)
     {
+        if (auth('cabang')->user()->status != 1) {
+            return redirect()->route('cabang.profil')->with('message', 'Akun Anda belum aktif. Silakan aktifkan terlebih dahulu di halaman profil.');
+        }
+
         $query = HasilPanen::with('cabang')->where('cabang_id', auth('cabang')->id());
 
         if ($request->has('search')) {
@@ -17,7 +21,7 @@ class C_HasilPanen extends Controller
             $query->where(function($q) use ($search) {
                 $q->where('periode_panen', 'like', "%$search%")
                     ->orWhereHas('cabang', function ($q2) use ($search) {
-                    $q2->where('nama', 'like', "%$search%"); 
+                    $q2->where('nama', 'like', "%$search%");
                 });
             });
         }

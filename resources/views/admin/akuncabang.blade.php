@@ -4,17 +4,25 @@
 
     @include('master.navbar')
 
-    <div class="container mx-auto px-4 py-6">
-        <div x-data="{ showModal: false}">
+    <div class="container mx-auto px-4 py-6 mb-6">
+        <div x-data="{ showModal: {{ request('showModal') === 'true' ? 'true' : 'false' }} }">
 
         <div class="flex justify-between items-center mb-6">
             <form action="{{ route('admin.akuncabang') }}" method="GET">
-                @if (Session::has('message'))
-                    <p class="mb-4 text-green-600 bg-green-100 border border-green-300 rounded px-4 py-2">
-                        {{ Session::get('message') }}
-                    </p>
+
+                @if (Session::has('alertSuccess'))
+                    <div class="bg-green-600 text-white px-4 py-2 rounded-md flex items-center justify-between shadow-md">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span>{{ Session::get('alertSuccess') }}</span>
+                        </div>
+                        <button onclick="this.parentElement.remove()" class="text-white text-lg font-bold">&times;</button>
+                    </div>
                 @endif
-                <div class="relative flex items-center mb-4"> <!-- Perubahan di sini -->
+
+                <div class="relative flex items-center mb-4">
                     <div class="absolute left-3 flex items-center pointer-events-none">
                         <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -37,8 +45,8 @@
                 class="bg-green-600 text-white px-4 py-2 rounded-md shadow hover:bg-green-700 transition">
             Tambah Data
             </button>
-        </div>
 
+        </div>
             <!-- Modal Tambah Cabang -->
             <div
                 x-show="showModal"
@@ -48,21 +56,25 @@
                 x-transition:leave="transition ease-in duration-200"
                 x-transition:leave-start="opacity-100 scale-100"
                 x-transition:leave-end="opacity-0 scale-90"
-                class="fixed inset-0 bg-black/50 z-40 flex items-center justify-center"
+                class="fixed inset-0 bg-black/50 z-60 flex items-center justify-center"
                 x-cloak>
                 <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl relative z-50">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-lg font-semibold">Tambah Data Akun Cabang</h2>
                         <button @click="showModal = false" class="text-2xl font-bold text-gray-500 hover:text-red-600">&times;</button>
-
                     </div>
-                    @if ($errors->any())
-                        <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-                            <ul class="list-disc list-inside text-sm">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+
+                    @if (Session::has('alertError'))
+                        <div class="mb-4 flex items-center justify-between bg-red-600 text-white px-4 py-3 rounded-md shadow-md">
+                            <div class="flex items-center gap-3">
+                                <img src="/asset/cross-circle.svg" class="w-5 h-5 brightness-0 invert" alt="Error Icon">
+                                <span class="font-medium">{{ Session::get('alertError') }}</span>
+                            </div>
+                            <button onclick="this.parentElement.remove()" class="text-white hover:text-red-200 focus:outline-none">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
                         </div>
                     @endif
 
@@ -126,11 +138,15 @@
                     </div>
                 </a>
             @endforeach
-
         </div>
+
         {{-- Pagination --}}
         <div class="mt-4">
             {{ $cabang->links() }}
         </div>
+
+    </div>
+
+    @include('master.footer')
 
 @endsection

@@ -31,7 +31,6 @@ class C_Cabang extends Controller
 
     public function updateProfilCabang(Request $request)
     {
-        $cabang = Auth::guard('cabang')->user();
         $cabang = auth('cabang')->user();
 
         $request->validate([
@@ -41,6 +40,7 @@ class C_Cabang extends Controller
             'no_hp' => 'required|string|max:100',
             'lokasi' => 'required|string|max:100',
             'password' => 'nullable|string|min:6|confirmed',
+            'status' => 'required|boolean',
         ]);
 
         $cabang->nama = $request->nama;
@@ -48,6 +48,7 @@ class C_Cabang extends Controller
         $cabang->nama_pekerja = $request->nama_pekerja;
         $cabang->no_hp = $request->no_hp;
         $cabang->lokasi = $request->lokasi;
+        $cabang->status = $request->status;
 
         if ($request->password) {
             $cabang->password = Hash::make($request->password);
@@ -55,7 +56,7 @@ class C_Cabang extends Controller
 
         $cabang->save();
 
-        return redirect()->route('cabang.profil')->with('message', 'Profil berhasil diperbarui!');
+        return redirect()->route('cabang.profil')->with('success', 'Profil berhasil diperbarui!');
     }
 
 }

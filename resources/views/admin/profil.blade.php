@@ -5,22 +5,26 @@
 @include('master.navbar')
 
 <div class="container mx-auto px-4 py-6">
-    <div class="bg-white p-6 rounded-lg shadow-lg border max-w-xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4 text-green-700">Profil Saya</h2>
+    <div class="bg-white p-8 rounded-xl shadow-lg mt-6 mb-10 border max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Profil Saya</h2>
+        <p class="text-gray-600 mb-6">Kelola informasi profil Anda untuk mengobrol, melindungi dan mengamankan akun</p>
+        <hr class="mb-6">
 
         <div class="space-y-4">
-            <div>
-                <label class="font-semibold">Username:</label>
-                <p>{{ $user->username ?? '-' }}</p>
-            </div>
-            <div>
-                <label class="font-semibold">Email:</label>
-                <p>{{ $user->email ?? '-' }}</p>
-            </div>
-            <div>
-                <label class="font-semibold">Password:</label>
-                <p class="italic text-gray-500">Tersimpan secara aman</p>
-            </div>
+            @php
+                $fields = [
+                    'Username' => $user->username ?? '-',
+                    'Email' => $user->email ?? '-',
+                    'Password' => '********',
+                ];
+            @endphp
+
+            @foreach ($fields as $label => $value)
+                <div class="flex items-center">
+                    <label class="w-1/3 text-gray-700 font-medium">{{ $label }}</label>
+                    <input type="text" value="{{ $value }}" class="w-2/3 border border-gray-300 rounded-lg px-4 py-2 bg-gray-100" disabled>
+                </div>
+            @endforeach
         </div>
 
         <div class="mt-6 flex justify-end">
@@ -28,5 +32,7 @@
         </div>
     </div>
 </div>
+
+@include('master.footer')
 
 @endsection

@@ -4,7 +4,7 @@
 
 @include('master.navbar2')
 
-<div x-data="{ open: false, showDetail: false, detailData: {} }" class="container mx-auto px-4 py-6">
+<div x-data="{ open: false, showDetail: false, detailData: {} }" class="container mx-auto px-4 py-6 mb-9">
     <div class="flex justify-between items-center mb-4">
         <form action="{{ route('cabang.hasilpanen') }}" method="GET" class="relative w-1/3">
             <input
@@ -133,6 +133,8 @@
             </div>
         </div>
     </div>
-
 </div>
+
+@include('master.footer2')
+
 @endsection

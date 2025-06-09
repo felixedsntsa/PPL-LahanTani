@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cabang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 
 class C_Profil extends Controller
@@ -25,20 +26,29 @@ class C_Profil extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nama' => 'required',
-            'email' => 'required|email|unique:cabangs,email',
-            'nama_pekerja' => 'required',
-            'no_hp' => 'required',
-            'lokasi' => 'required',
-            'password' => 'required|min:6',
+        $validator = Validator::make($request->all(), [
+        'nama' => 'required',
+        'email' => 'required|email|unique:cabangs,email',
+        'nama_pekerja' => 'required',
+        'no_hp' => 'required',
+        'lokasi' => 'required',
+        'password' => 'required|min:6',
+        'status' => 'required|boolean',
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->route('admin.akuncabang', ['showModal' => 'true'])
+                ->withErrors($validator)
+                ->with('alertError', 'Email harus unik dan password minimal 6 karakter.');
+        }
+
+        $validated = $validator->validated();
         $validated['password'] = bcrypt($validated['password']);
         $validated['status'] = $request->has('status');
         Cabang::create($validated);
 
-        return redirect()->route('admin.akuncabang')->with('message', 'Cabang berhasil ditambahkan!');
+        return redirect()->route('admin.akuncabang')
+            ->with('alertSuccess', 'Cabang berhasil ditambahkan!');
     }
 
         public function editProfil()

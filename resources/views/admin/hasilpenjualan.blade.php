@@ -4,7 +4,7 @@
 
 @include('master.navbar')
 
-    <div class="flex mt-5">
+    <div class="flex mt-5 mb-16">
         <!-- Sidebar Tahun -->
         <div class="w-1/6 bg-white border-r p-4 text-center">
             <form action="" method="get">
@@ -22,7 +22,7 @@
         </div>
 
         <!-- Konten Grafik -->
-        <div class="w-5/6 p-6">
+        <div class="w-5/6 p-6 mb-16">
             <div class="bg-white shadow p-6 rounded relative">
                 <!-- Header Chart + Tombol -->
                 <div class="flex justify-end items-center mb-4">
@@ -60,6 +60,8 @@
             </form>
         </div>
     </div>
+
+    @include('master.footer')
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

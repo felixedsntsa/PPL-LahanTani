@@ -4,8 +4,18 @@
 
 @include('master.navbar2')
 
-<div class="container mx-auto px-4 py-6">
+<div class="container mx-auto px-4 py-6 mb-4">
     <div class="bg-white p-8 rounded-xl shadow-md border max-w-2xl mx-auto">
+        @if(session('message'))
+            <div class="mb-4 p-4 bg-red-100 border border-red-300 text-red-800 rounded-lg">
+                {{ session('message') }}
+            </div>
+        @endif
+        @if(session('success'))
+            <div class="mb-4 p-4 bg-green-100 border border-green-300 text-green-800 rounded-lg">
+                {{ session('success') }}
+            </div>
+        @endif
         <h2 class="text-3xl font-bold text-gray-800 mb-2">Profil Saya</h2>
         <p class="text-gray-600 mb-6">Kelola informasi profil Anda untuk mengobrol, melindungi dan mengamankan akun</p>
         <hr class="mb-6">
@@ -38,5 +48,7 @@
         </div>
     </div>
 </div>
+
+@include('master.footer2')
 
 @endsection

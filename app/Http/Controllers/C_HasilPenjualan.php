@@ -36,7 +36,7 @@ class C_HasilPenjualan extends Controller
 
         $tanggal = \Carbon\Carbon::parse($request->tanggal);
         $tahun = $tanggal->year;
-        $bulan = $tanggal->format('F'); // ex: Januari, Februari
+        $bulan = $tanggal->format('F'); 
 
         HasilPenjualan::updateOrCreate(
             ['tahun' => $tahun, 'bulan' => $bulan],

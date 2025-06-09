@@ -19,7 +19,7 @@
     </script>
     <title>LahanTani | @yield('title')</title>
 </head>
-<body class="relative h-screen bg-cover bg-center" style="background-image: url('asset/bgmelon.png')">
+<body class="relative h-screen bg-cover bg-center" style="background-image: url('asset/plantmelon.jpg');">
 
     @yield('content')
 

@@ -7,7 +7,7 @@
 <div class="container mx-auto px-4 py-6">
     <h2 class="text-2xl font-bold mb-4">Laporan Pemantauan</h2>
 
-    <div class="bg-white shadow rounded-lg p-6">
+    <div class="bg-white shadow rounded-lg p-6 mb-16">
         <div class="flex justify-between items-center mb-4">
             <form method="GET" action="{{ route('admin.laporan') }}" class="w-full max-w-sm">
                 <div class="relative">
@@ -27,7 +27,7 @@
                 </div>
             </form>
         </div>
-        
+
         <table class="min-w-full text-sm text-left">
             <thead class="bg-gray-100 text-gray-700 font-semibold">
                 <tr>
@@ -73,5 +73,7 @@
         </div>
     </div>
 </div>
+
+@include('master.footer')
 
 @endsection

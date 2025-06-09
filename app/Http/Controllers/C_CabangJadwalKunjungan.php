@@ -10,6 +10,10 @@ class C_CabangJadwalKunjungan extends Controller
 {
     public function index()
     {
+        if (auth('cabang')->user()->status != 1) {
+            return redirect()->route('cabang.profil')->with('message', 'Akun Anda belum aktif. Silakan aktifkan terlebih dahulu di halaman profil.');
+        }
+
         return view('cabang.jadwalkunjungan');
     }
 

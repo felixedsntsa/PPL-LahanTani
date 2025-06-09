@@ -5,12 +5,13 @@
 @include('master.navbar')
 
 <div class="container mx-auto mt-6 p-6 bg-white rounded-xl shadow-md">
-    <h2 class="text-xl font-semibold mb-4">Beri Feedback untuk Laporan</h2>
+
+    <h2 class="text-2xl font-semibold mb-4">Feedback Laporan</h2>
 
     {{-- Dokumentasi --}}
     @if ($laporan->dokumentasi && count($laporan->dokumentasi) > 0)
         <div class="mb-6">
-            <label class="block font-semibold text-gray-700 mb-2">Unggah Dokumentasi</label>
+            <label class="block font-semibold text-black mb-2">Unggah Dokumentasi</label>
             <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 flex flex-wrap gap-4 bg-gray-50">
                 @foreach ($laporan->dokumentasi as $doc)
                     <img src="{{ asset('storage/' . $doc) }}" class="w-32 h-24 object-cover rounded-md">
@@ -21,7 +22,7 @@
 
     {{-- Deskripsi --}}
     <div class="mb-6">
-        <label class="block text-gray-700 font-semibold mb-2">Deskripsi</label>
+        <label class="block text-black font-semibold mb-2">Deskripsi</label>
         <div class="border border-gray-300 rounded-lg bg-gray-50 p-4 text-gray-800 text-sm">
             {{ $laporan->deskripsi }}
         </div>
@@ -30,7 +31,7 @@
     {{-- Jika feedback sudah diisi --}}
     @if ($laporan->feedback)
         <div class="mb-6">
-            <label class="block text-gray-700 font-semibold mb-2">Feedback</label>
+            <label class="block text-black font-semibold mb-2">Feedback</label>
             <div class="border border-green-300 bg-green-50 p-4 rounded-lg text-gray-800 text-sm">
                 {{ $laporan->feedback }}
             </div>
@@ -41,7 +42,7 @@
         <form action="{{ route('admin.laporan.feedback.submit', $laporan->id) }}" method="POST">
             @csrf
             <div class="mb-6">
-                <label for="feedback" class="block text-gray-700 font-semibold mb-2">Feedback</label>
+                <label for="feedback" class="block text-black font-semibold mb-2">Feedback</label>
                 <textarea
                     name="feedback"
                     id="feedback"
@@ -54,9 +55,9 @@
             <div class="flex justify-end">
                 <button
                     type="submit"
-                    class="bg-green-600 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-700 transition duration-200"
+                    class="bg-green-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-200"
                 >
-                    Simpan
+                    Kirim
                 </button>
             </div>
         </form>
