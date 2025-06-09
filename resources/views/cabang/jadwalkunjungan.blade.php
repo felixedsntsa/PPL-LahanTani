@@ -66,7 +66,7 @@
                     html: `
                         <div class="leading-tight ml-4 mr-4 mt-2 mb-2 p-2 bg-white rounded-lg shadow-md cursor-pointer">
                             <div class="mb-0.5 text-black font-extrabold text-2xl">${jamRange}</div>
-                            <div style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" class="font-semibold text-black">${title}</div>
+                            <div style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" class="font-semibold text-black">Berkunjung ke lahan</div>
                         </div>
                     `
                 };
