@@ -4,7 +4,7 @@
 
 @include('master.navbar')
 
-<div class="container mx-auto px-4 py-6">
+<div class="container h-screen mx-auto px-4 py-6">
     <h2 class="text-2xl font-bold mb-4">Laporan Pemantauan</h2>
 
     <div class="bg-white shadow rounded-lg p-6 mb-16">

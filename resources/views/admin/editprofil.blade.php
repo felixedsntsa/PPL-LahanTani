@@ -4,7 +4,7 @@
 
 @include('master.navbar')
 
-<div class="container mx-auto px-4 py-6">
+<div class="container h-screen mx-auto px-4 py-6">
     <div class="bg-white p-6 rounded-xl mt-6 shadow-lg border max-w-2xl mx-auto mb-10">
         <h2 class="text-3xl font-bold text-gray-800 mb-2">Profil Saya</h2>
         <p class="text-gray-600 mb-6">Kelola informasi profil Anda untuk mengobrol, melindungi dan menggunakan akun</p>

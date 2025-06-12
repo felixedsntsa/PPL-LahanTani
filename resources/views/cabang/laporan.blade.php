@@ -6,7 +6,7 @@
 
 @php use Illuminate\Support\Str; @endphp
 
-<div class="max-w-6xl mx-auto py-10 px-4">
+<div class="max-w-6xl h-screen mx-auto py-10 px-4">
 
     <div class="mb-6 flex justify-between items-center">
         <form action="{{ route('cabang.laporan') }}" method="GET" class="relative w-1/3">
