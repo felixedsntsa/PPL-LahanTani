@@ -24,7 +24,7 @@ class C_AdminJadwalKunjungan extends Controller
                 'end' => $item->tanggal . 'T' . $item->jam_selesai,
                 'description' => $item->tujuan,
                 'cabang_nama' => $item->cabang->nama,
-                'cal_title' => 'Berkunjung ke ' . $item->cabang->nama
+                'cal_title' => 'Berkunjung ke cabang'
             ];
         });
 
