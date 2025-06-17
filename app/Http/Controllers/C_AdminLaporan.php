@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Cabang;
 use App\Models\Laporan;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,15 @@ class C_AdminLaporan extends Controller
         }
 
         $laporans = $query->simplePaginate(10);
-        return view('admin.laporan', compact('laporans'));
+            return view('admin.laporan', [
+            'laporans' => $laporans,
+            'totalLaporan' => Laporan::count(),
+            'laporanHariIni' => Laporan::whereDate('created_at', today())->count(),
+            'belumDirespon' => Laporan::whereNull('feedback')->count(),
+            'totalDokumentasi' => Laporan::get()->sum(function($laporan) {
+                return count($laporan->dokumentasi);
+            })
+        ]);
     }
 
     public function show($id)
