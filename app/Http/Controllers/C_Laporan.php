@@ -21,7 +21,7 @@ class C_Laporan extends Controller
             $query->where('tanggal', 'like', "%$search%");
         }
 
-        $laporans = $query->latest()->get();
+        $laporans = $query->simplePaginate(10);
         return view('cabang.laporan', compact('laporans'));
     }
 
