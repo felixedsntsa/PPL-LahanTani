@@ -27,16 +27,39 @@
 
             <!-- Profile Edit Body -->
             <div class="p-6 bg-white/90 backdrop-blur-sm">
+                <!-- SweetAlert for Success Message -->
                 @if(session('message'))
-                    <div class="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <div>{{ session('message') }}</div>
-                    </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: '{{ session('message') }}',
+                            timer: 3000,
+                            showConfirmButton: false,
+                            background: '#f0fdf4',
+                            iconColor: '#10b981'
+                        });
+                    });
+                </script>
                 @endif
 
-                <form action="{{ route('profil.update') }}" method="POST">
+                <!-- SweetAlert for Error Messages -->
+                @if($errors->any())
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal!',
+                            html: `<ul class="text-center">@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>`,
+                            background: '#fef2f2',
+                            iconColor: '#ef4444'
+                        });
+                    });
+                </script>
+                @endif
+
+                <form id="editProfileForm" action="{{ route('profil.update') }}" method="POST">
                     @csrf
 
                     <div class="space-y-6">
@@ -59,6 +82,14 @@
                                 [
                                     'name' => 'password',
                                     'label' => 'Password',
+                                    'type' => 'password',
+                                    'value' => '',
+                                    'icon' => 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+                                    'placeholder' => 'Kosongkan jika tidak ingin diubah'
+                        ],
+                                [
+                                    'name' => 'password_confirmation',
+                                    'label' => 'Konfirmasi Password',
                                     'type' => 'password',
                                     'value' => '',
                                     'icon' => 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
@@ -91,14 +122,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    @error($field['name'])
-                                        <p class="mt-1 text-sm text-red-600 flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            {{ $message }}
-                                        </p>
-                                    @enderror
+
                                 </div>
                             </div>
                         @endforeach
@@ -136,5 +160,41 @@
 </div>
 
 @include('master.footer')
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- SweetAlert Form Submission Handling -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('editProfileForm');
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Konfirmasi Perubahan',
+                    text: 'Apakah Anda yakin ingin menyimpan perubahan profil?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#10b981',
+                    cancelButtonColor: '#6b7280',
+                    confirmButtonText: 'Ya, Simpan!',
+                    cancelButtonText: 'Batal',
+                    background: '#ffffff',
+                    backdrop: `
+                        rgba(16, 185, 129, 0.1)
+                    `
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit the form if user confirms
+                        form.submit();
+                    }
+                });
+            });
+        }
+    });
+</script>
 
 @endsection

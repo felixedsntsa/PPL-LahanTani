@@ -4,7 +4,7 @@
 
 @include('master.navbar2')
 
-<div class="min-h-screen bg-gradient-to-br from-gray-50 to-green-50 py-8 px-4 sm:px-6 lg:px-8">
+<div class="min-h-screen bg-gradient-to-b from-gray-50 to-teal-50 py-8 px-4 sm:px-6 lg:px-8">
     <div class="max-w-5xl mx-auto">
         <!-- Header Section -->
         <div class="mb-8 text-center">

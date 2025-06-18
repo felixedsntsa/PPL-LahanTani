@@ -45,23 +45,19 @@
                 </div>
             </div>
 
-            <!-- Success Alert -->
+            <!-- SweetAlert Success Message -->
             @if (Session::has('alertSuccess'))
-                <div class="mb-6 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-sm">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>{{ Session::get('alertSuccess') }}</span>
-                        </div>
-                        <button onclick="this.parentElement.parentElement.remove()" class="text-green-700 hover:text-green-900">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses',
+                            text: '{{ Session::get('alertSuccess') }}',
+                            timer: 3000,
+                            showConfirmButton: false
+                        });
+                    });
+                </script>
             @endif
 
             <!-- Modal Tambah Cabang -->
@@ -86,28 +82,24 @@
                         </div>
                     </div>
 
-                    <!-- Error Alert -->
+                    <!-- SweetAlert Error Message -->
                     @if (Session::has('alertError'))
-                        <div class="mx-6 mt-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                    <span>{{ Session::get('alertError') }}</span>
-                                </div>
-                                <button onclick="this.parentElement.parentElement.remove()" class="text-red-700 hover:text-red-900">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Gagal',
+                                    text: '{{ Session::get('alertError') }}',
+                                    timer: 3000,
+                                    showConfirmButton: false
+                                });
+                            });
+                        </script>
                     @endif
 
                     <!-- Modal Body -->
                     <div class="p-6">
-                        <form action="{{ route('admin.akuncabang.store') }}" method="POST">
+                        <form id="tambahCabangForm" action="{{ route('admin.akuncabang.store') }}" method="POST">
                             @csrf
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
@@ -242,5 +234,37 @@
 </div>
 
 @include('master.footer')
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- SweetAlert Form Submission Handling -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('tambahCabangForm');
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: 'Apakah Anda yakin ingin menambahkan cabang baru?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Tambahkan!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit the form if user confirms
+                        form.submit();
+                    }
+                });
+            });
+        }
+    });
+</script>
 
 @endsection

@@ -10,10 +10,10 @@ class C_HasilPanen extends Controller
     public function index(Request $request)
     {
         if (auth('cabang')->user()->status != 1) {
-            return redirect()->route('cabang.profil')->with('message', 'Akun Anda belum aktif. Silakan aktifkan terlebih dahulu di halaman profil.');
+            return redirect()->route('cabang.profil')->with('error', 'Akun Anda belum aktif. Silakan aktifkan terlebih dahulu di halaman profil.');
         }
 
-        $query = HasilPanen::with('cabang')->where('cabang_id', auth('cabang')->id());
+        $query = HasilPanen::with('cabang')->where('cabang_id', auth('cabang')->id())->latest();
 
         if ($request->has('search')) {
             $search = $request->search;
@@ -26,9 +26,13 @@ class C_HasilPanen extends Controller
             });
         }
 
-        $hasilPanens = $query->latest()->get();
+        $hasilPanens = $query->simplePaginate(10);
+        // Hitung data untuk summary
+        $totalPanen = HasilPanen::where('cabang_id', auth('cabang')->id())->sum('total_panen');
+        $totalPeriode = HasilPanen::where('cabang_id', auth('cabang')->id())->distinct('periode_panen')->count('periode_panen');
+        $lastUpdate = HasilPanen::where('cabang_id', auth('cabang')->id())->latest()->value('created_at');
 
-        return view('cabang.hasilpanen', compact('hasilPanens'));
+        return view('cabang.hasilpanen', compact('hasilPanens', 'totalPanen', 'totalPeriode', 'lastUpdate'));
     }
 
     public function store(Request $request)
