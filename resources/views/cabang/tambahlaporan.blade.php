@@ -17,29 +17,6 @@
             <p class="mt-2 text-gray-600">Lengkapi formulir berikut untuk membuat laporan baru</p>
         </div>
 
-        <!-- Error Messages -->
-        @if ($errors->any())
-            <div class="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-lg shadow-sm">
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <svg class="h-5 w-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <div class="ml-3">
-                        <h3 class="text-sm font-medium text-red-800">Terdapat {{ $errors->count() }} kesalahan yang perlu diperbaiki</h3>
-                        <div class="mt-2 text-sm text-red-700">
-                            <ul class="list-disc pl-5 space-y-1">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-
         <!-- Form Card -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
             <form action="{{ route('cabang.laporan.store') }}" method="POST" enctype="multipart/form-data" id="uploadForm">
@@ -114,6 +91,12 @@
 </div>
 
 @include('master.footer2')
+
+<!-- SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -242,6 +225,77 @@
 
             renderPreview();
         }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('uploadForm');
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        // Show error message from session if exists
+        @if(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: '{{ session('error') }}',
+                confirmButtonColor: '#dc2626'
+            });
+        @endif
+
+        // Form submission handler
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Check if at least one file is selected
+            const fileInput = document.getElementById('fileInput');
+            const deskripsi = document.getElementById('deskripsi').value.trim();
+
+            if (fileInput.files.length === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Peringatan',
+                    text: 'Anda belum memilih dokumentasi laporan',
+                    confirmButtonColor: '#d97706'
+                });
+                return;
+            }
+
+            if (!deskripsi) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Peringatan',
+                    text: 'Deskripsi laporan tidak boleh kosong',
+                    confirmButtonColor: '#d97706'
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: 'Kirim Laporan?',
+                text: "Anda yakin ingin mengirim laporan ini?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#16a34a',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Kirim!',
+                cancelButtonText: 'Batal',
+                backdrop: true,
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `
+                        <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Mengirim...
+                    `;
+
+                    // Submit the form
+                    form.submit();
+                }
+            });
+        });
     });
 </script>
 

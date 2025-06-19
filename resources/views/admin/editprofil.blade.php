@@ -27,22 +27,6 @@
 
             <!-- Profile Edit Body -->
             <div class="p-6 bg-white/90 backdrop-blur-sm">
-                <!-- SweetAlert for Success Message -->
-                @if(session('message'))
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Berhasil!',
-                            text: '{{ session('message') }}',
-                            timer: 3000,
-                            showConfirmButton: false,
-                            background: '#f0fdf4',
-                            iconColor: '#10b981'
-                        });
-                    });
-                </script>
-                @endif
 
                 <!-- SweetAlert for Error Messages -->
                 @if($errors->any())
@@ -182,10 +166,7 @@
                     cancelButtonColor: '#6b7280',
                     confirmButtonText: 'Ya, Simpan!',
                     cancelButtonText: 'Batal',
-                    background: '#ffffff',
-                    backdrop: `
-                        rgba(16, 185, 129, 0.1)
-                    `
+                    backdrop: true,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Submit the form if user confirms

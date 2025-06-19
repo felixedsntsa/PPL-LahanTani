@@ -352,14 +352,29 @@
         const form = this;
 
         Swal.fire({
-            title: 'Menyimpan Data',
-            html: 'Sedang memproses data hasil panen...',
-            allowOutsideClick: false,
-            didOpen: () => {
-                Swal.showLoading();
-                form.submit();
-            }
-        });
+                title: 'Kirim Laporan?',
+                text: "Anda yakin ingin mengirim laporan hasil panen ini?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#16a34a',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Kirim!',
+                cancelButtonText: 'Batal',
+                backdrop: true,
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Menyimpan Data',
+                        html: 'Sedang memproses data hasil panen...',
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                            form.submit();
+                        }
+                    });
+                }
+            });
     });
 
     @if(session('success'))

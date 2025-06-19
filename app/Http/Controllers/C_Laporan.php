@@ -14,7 +14,7 @@ class C_Laporan extends Controller
             return redirect()->route('cabang.profil')->with('error', 'Akun Anda belum aktif. Silakan aktifkan terlebih dahulu di halaman profil.');
         }
 
-        $query = Laporan::where('cabang_id', auth('cabang')->id());
+        $query = Laporan::where('cabang_id', auth('cabang')->id())->latest();
 
         if ($request->has('search')) {
             $search = $request->search;

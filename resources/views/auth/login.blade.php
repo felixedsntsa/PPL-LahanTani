@@ -6,7 +6,7 @@
         <div class="relative z-10 flex items-center justify-center h-full">
         <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md ">
         <div class="flex items-center justify-center">
-            <img src="asset/melonrepo.svg" alt="" class="w-20 mb-5">
+            <img src="asset/LahanTani.png" alt="" class="w-20 mb-5">
         </div>
         <h1 class="text-3xl font-extrabold text-center text-green-600 mb-8">LahanTani</h1>
 

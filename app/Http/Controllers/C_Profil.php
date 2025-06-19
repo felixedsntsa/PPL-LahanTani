@@ -75,7 +75,7 @@ class C_Profil extends Controller
 
         $user->save();
 
-        return redirect()->route('profil.edit')->with('message', 'Profil berhasil diperbarui!');
+        return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui!');
     }
 
 }

@@ -1,5 +1,5 @@
 @extends('master.public')
-@section('title', 'Dashboard Admin')
+@section('title', 'Feedback Laporan - Admin')
 @section('content')
 
 @include('master.navbar')
@@ -71,7 +71,7 @@
                             </p>
                         </div>
                     @else
-                        <form action="{{ route('admin.laporan.feedback.submit', $laporan->id) }}" method="POST">
+                        <form id="feedbackForm" action="{{ route('admin.laporan.feedback.submit', $laporan->id) }}" method="POST">
                             @csrf
                             <div class="mb-6">
                                 <label for="feedback" class="block font-medium text-gray-700 mb-3">Beri Feedback</label>
@@ -81,6 +81,7 @@
                                     rows="5"
                                     placeholder="Tulis feedback yang jelas dan konstruktif..."
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 shadow-sm"
+                                    required
                                 >{{ old('feedback') }}</textarea>
                                 <p class="text-sm text-gray-500 mt-1">Feedback yang baik membantu meningkatkan kualitas pelayanan.</p>
                             </div>
@@ -91,6 +92,7 @@
                                 </a>
                                 <button
                                     type="submit"
+                                    id="submitFeedback"
                                     class="px-6 py-2 bg-gradient-to-r from-green-600 to-green-700 text-white font-medium rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-200 shadow-md hover:shadow-lg"
                                 >
                                     <div class="flex items-center">
@@ -123,6 +125,9 @@
     </div>
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     function openModal(imageSrc) {
         document.getElementById('modalImage').src = imageSrc;
@@ -144,6 +149,25 @@
         if (e.target === this) {
             closeModal();
         }
+    });
+    // Form submission with SweetAlert confirmation
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Kirim Feedback?',
+            text: "Anda tidak akan dapat mengubah feedback ini setelah dikirim",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#16a34a',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Kirim!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+        });
     });
 </script>
 

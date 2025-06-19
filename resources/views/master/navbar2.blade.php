@@ -40,7 +40,7 @@
             <div class="flex items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <img src="/asset/melonrepo.svg" alt="LahanTani Logo" class="h-10 w-auto">
+                    <img src="/asset/LahanTani.png" alt="LahanTani Logo" class="h-10 w-auto">
                     <span class="ml-3 text-2xl font-bold text-green-700 hidden sm:block"><a href="{{ url('/cabang/dashboard') }}">Lahan<span class="text-green-600">Tani</span></a></span>
                 </div>
 
