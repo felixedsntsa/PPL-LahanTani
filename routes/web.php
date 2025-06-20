@@ -1,17 +1,20 @@
 <?php
 
+use App\Http\Controllers\C_Edukasi;
+use App\Http\Controllers\C_FAQ;
 use App\Http\Controllers\C_Login;
 use App\Http\Controllers\C_Cabang;
 use App\Http\Controllers\C_Profil;
 use App\Http\Controllers\C_Laporan;
-use App\Http\Controllers\C_HasilPanen;
-use App\Http\Controllers\C_AdminHasilPanen;
-use App\Http\Controllers\C_HasilPenjualan;
-use App\Http\Controllers\C_AdminJadwalKunjungan;
-use App\Http\Controllers\C_CabangJadwalKunjungan;
+use App\Http\Controllers\C_Register;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\C_HasilPanen;
 use App\Http\Controllers\C_AdminLaporan;
+use App\Http\Controllers\C_HasilPenjualan;
+use App\Http\Controllers\C_AdminHasilPanen;
+use App\Http\Controllers\C_AdminJadwalKunjungan;
+use App\Http\Controllers\C_CabangJadwalKunjungan;
 use App\Http\Controllers\C_AdminLaporan as AdminLaporanController;
 
 /*
@@ -32,6 +35,10 @@ Route::get('/', function () {
 // login
 Route::get('/login', [C_Login::class , 'masuk'])->name('login');
 Route::post('/login', [C_Login::class, 'proses'])->name('login.proses');
+
+// Register
+Route::get('/register', [C_Register::class, 'showRegistrationForm'])->name('cabang.register.form');
+Route::post('/register', [C_Register::class, 'register'])->name('cabang.register');
 
 // DASHBOARD ADMIN
 Route::get('/admin/dashboard', function () {
@@ -72,6 +79,9 @@ Route::middleware('auth:cabang')->group(function () {
     Route::get('/laporan/tambah', [C_Laporan::class, 'create'])->name('cabang.laporan.create');
     Route::post('/laporan/store', [C_Laporan::class, 'store'])->name('cabang.laporan.store');
     Route::get('/cabang/laporan/{id}', [C_Laporan::class, 'show'])->name('cabang.laporan.show');
+    Route::get('/laporan/{id}/edit', [C_Laporan::class, 'edit'])->name('cabang.laporan.edit');
+    Route::put('/laporan/{id}', [C_Laporan::class, 'update'])->name('cabang.laporan.update');
+    Route::delete('/laporan/{id}', [C_Laporan::class, 'destroy'])->name('cabang.laporan.destroy');
 });
 
 // LAPORAN ADMIN
@@ -90,6 +100,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth:cabang')->group(function () {
     Route::get('/hasilpanen', [C_HasilPanen::class, 'index'])->name('cabang.hasilpanen');
     Route::post('/hasilpanen', [C_HasilPanen::class, 'store'])->name('cabang.hasilpanen.store');
+    Route::get('/hasilpanen/{id}/edit', [C_HasilPanen::class, 'edit'])->name('cabang.hasilpanen.edit');
+    Route::put('/hasilpanen/{id}', [C_HasilPanen::class, 'update'])->name('cabang.hasilpanen.update');
+    Route::delete('/hasilpanen/{id}', [C_HasilPanen::class, 'destroy'])->name('cabang.hasilpanen.destroy');
 });
 
 // HASIL PANEN ADMIN
@@ -112,4 +125,24 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth:cabang')->group(function () {
     Route::get('/jadwal-cabang', [C_CabangJadwalKunjungan::class, 'index'])->name('cabang.jadwal.index');
     Route::get('/jadwal-cabang/events', [C_CabangJadwalKunjungan::class, 'events'])->name('cabang.jadwal.events');
+});
+
+// ADMIN FAQ
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/faq', [C_FAQ::class, 'index'])->name('admin.faq.index');
+    Route::get('/admin/faq/create', [C_FAQ::class, 'create'])->name('admin.faq.create');
+    Route::post('/admin/faq', [C_FAQ::class, 'store'])->name('admin.faq.store');
+    Route::get('/admin/faq/{id}/edit', [C_FAQ::class, 'edit'])->name('admin.faq.edit');
+    Route::put('/admin/faq/{id}', [C_FAQ::class, 'update'])->name('admin.faq.update');
+    Route::delete('/admin/faq/{id}', [C_FAQ::class, 'destroy'])->name('admin.faq.destroy');
+});
+
+// ADMIN EDUKASI
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/edukasi', [C_Edukasi::class, 'index'])->name('admin.edukasi.index');
+    Route::get('/admin/edukasi/create', [C_Edukasi::class, 'create'])->name('admin.edukasi.create');
+    Route::post('/admin/edukasi', [C_Edukasi::class, 'store'])->name('admin.edukasi.store');
+    Route::get('/admin/edukasi/{id}/edit', [C_Edukasi::class, 'edit'])->name('admin.edukasi.edit');
+    Route::put('/admin/edukasi/{id}', [C_Edukasi::class, 'update'])->name('admin.edukasi.update');
+    Route::delete('/admin/edukasi/{id}', [C_Edukasi::class, 'destroy'])->name('admin.edukasi.destroy');
 });

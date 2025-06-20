@@ -30,8 +30,11 @@
 
             <!-- Primary CTA -->
             <div class="animate-fadeInUp">
-                <a href="{{ url('/login') }}" class="inline-block px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <a href="{{ url('/login') }}" class="inline-block px-8 py-3 mr-4 bg-gradient-to-r from-green-600 to-green-700 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                     Masuk ke Sistem
+                </a>
+                <a href="{{ url('/register') }}" class="inline-block px-8 py-3 text-black bg-gradient-to-r from-gray-300 to-gray-400 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    Daftar Akun Baru
                 </a>
             </div>
         </div>

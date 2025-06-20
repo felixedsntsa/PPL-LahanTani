@@ -76,6 +76,10 @@
                 </svg>
                 Masuk
             </button>
+            <!-- Register Link -->
+            <p class="text-sm text-center text-gray-800 mt-4">
+                Belum punya akun? <a href="{{ route('cabang.register.form') }}" class="text-green-600 hover:text-green-700 font-medium">Daftar Sekarang</a>
+            </p>
         </form>
     </div>
 </div>
@@ -97,6 +101,19 @@
                 confirmButtonColor: '#dc2626',
                 timer: 3000,
                 timerProgressBar: true
+            });
+        @endif
+
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                confirmButtonColor: '#16a34a',
+                timer: 3000,
+                timerProgressBar: true,
+                background: '#f8fafc',
+                iconColor: '#16a34a'
             });
         @endif
 

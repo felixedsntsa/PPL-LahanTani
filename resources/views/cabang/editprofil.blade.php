@@ -207,6 +207,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
         const form = document.getElementById('profileForm');
         const submitBtn = document.getElementById('submitBtn');
 
