@@ -7,6 +7,7 @@ use App\Http\Controllers\C_Cabang;
 use App\Http\Controllers\C_Profil;
 use App\Http\Controllers\C_Laporan;
 use App\Http\Controllers\C_Register;
+use App\Http\Controllers\C_CabangFAQ;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\C_HasilPanen;
@@ -146,3 +147,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/edukasi/{id}', [C_Edukasi::class, 'update'])->name('admin.edukasi.update');
     Route::delete('/admin/edukasi/{id}', [C_Edukasi::class, 'destroy'])->name('admin.edukasi.destroy');
 });
+
+// Cabang FAQ dan Edukasi
+Route::middleware('auth:cabang')->group(function () {
+    Route::get('/cabang-faq', [C_CabangFAQ::class, 'index'])->name('cabang.faq.index');
+});
+

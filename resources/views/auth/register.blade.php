@@ -2,7 +2,7 @@
 @section('title', 'Pendaftaran Cabang Baru')
 @section('content')
 
-<div class="min-h-screen flex items-center justify-center bg-gray-900" style="background-image: url('asset/plantmelon.jpg'); background-size: cover; background-position: center; background-blend-mode: overlay;">
+<div class="min-h-screen flex items-center justify-center bg-gray-700" style="background-image: url('asset/plantmelon.jpg'); background-size: cover; background-position: center; background-blend-mode: overlay;">
 
     <div class="relative z-10  max-w-4xl px-4 py-8">
         <!-- Card Container -->

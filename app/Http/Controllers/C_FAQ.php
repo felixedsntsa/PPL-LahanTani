@@ -10,8 +10,7 @@ class C_FAQ extends Controller
     public function index()
     {
         $faqs = FAQ::all();
-        $isAdmin = auth('web')->check();
-        return view('admin.faq', compact('faqs', 'isAdmin'));
+        return view('admin.faq', compact('faqs'));
     }
 
     public function create() { return view('admin.tambahfaq'); }
@@ -26,7 +25,7 @@ class C_FAQ extends Controller
     public function edit($id)
     {
         $faq = FAQ::findOrFail($id);
-        return view('faq.edit', compact('faq'));
+        return view('admin.editfaq', compact('faq'));
     }
 
     public function update(Request $request, $id)

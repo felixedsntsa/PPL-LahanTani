@@ -36,6 +36,14 @@
                     Hasil Panen
                 </a>
             </li>
+            <li>
+                <a href="{{ route('cabang.faq.index') }}" class="flex items-center text-green-100 hover:text-white transition-colors duration-300 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-300 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11h-2v-2h2v2zm0-4h-2V7h2v2z" clip-rule="evenodd" />
+                    </svg>
+                    FAQ
+                </a>
+            </li>
         </ul>
     </div>
 

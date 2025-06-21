@@ -66,6 +66,14 @@
                         </svg>
                         Hasil Panen
                     </a>
+
+                    <a href="{{ route('cabang.faq.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-green-700 hover:border-green-500 transition duration-150 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11h-2v-2h2v2zm0-4h-2V7h2v2z" clip-rule="evenodd" />
+                        </svg>
+                        FAQ
+                    </a>
+
                 </div>
             </div>
 
@@ -126,6 +134,7 @@
             <a href="{{ route('cabang.laporan') }}" class="block pl-3 pr-4 py-2 border-l-4 border-green-500 text-base font-medium text-green-700 bg-green-50">Pemantauan</a>
             <a href="{{ route('cabang.jadwal.index') }}" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Jadwal Kunjungan</a>
             <a href="{{ route('cabang.hasilpanen') }}" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Hasil Panen</a>
+            <a href="{{ route('cabang.faq.index') }}" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">FAQ</a>
         </div>
         <div class="pt-4 pb-3 border-t border-gray-200">
             <div class="flex items-center px-4">
