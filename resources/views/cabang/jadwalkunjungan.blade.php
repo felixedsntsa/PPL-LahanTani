@@ -147,7 +147,7 @@
                 const jamSelesai = `${pad(end.getHours())}.${pad(end.getMinutes())}`;
 
                 // Tampilkan ke modal
-                document.getElementById('detailCabang').textContent = event.title;
+                document.getElementById('detailCabang').textContent = event.title || 'Tidak ada cabang';
                 document.getElementById('detailWaktu').textContent = `${tanggal}\n${jamMulai} - ${jamSelesai}`;
                 document.getElementById('detailTujuan').textContent = event.extendedProps.description || 'Tidak ada deskripsi';
 

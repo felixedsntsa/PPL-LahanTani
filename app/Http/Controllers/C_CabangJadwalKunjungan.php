@@ -37,7 +37,7 @@ class C_CabangJadwalKunjungan extends Controller
                     Log::info('Item data: ' . json_encode($item->toArray()));
 
                     return [
-                        'title' => $item->tujuan,
+                        'title' => $item->cabang->nama,
                         'start' => $item->tanggal . 'T' . $item->jam_mulai,
                         'end' => $item->tanggal . 'T' . $item->jam_selesai,
                         'description' => $item->tujuan,
