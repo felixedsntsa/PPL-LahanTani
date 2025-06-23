@@ -52,6 +52,14 @@
                     FAQ
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.edukasi.index') }}" class="flex items-center text-green-100 hover:text-white transition-colors duration-300 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-300 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 6a2 2 0 012-2h9a2 2 0 012 2v10a1 1 0 01-1 1H4a2 2 0 01-2-2V6zm13 0V4a2 2 0 00-2-2H6a2 2 0 00-2 2v2h11z" />
+                    </svg>
+                    Edukasi
+                </a>
+            </li>
         </ul>
     </div>
 

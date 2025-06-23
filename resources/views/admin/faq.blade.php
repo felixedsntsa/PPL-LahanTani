@@ -1,5 +1,5 @@
 @extends('master.public')
-@section('title', 'FAQ Management')
+@section('title', 'Manajemen FAQ')
 @section('content')
 
 @include('master.navbar')
@@ -104,6 +104,12 @@
                 </div>
             @endif
         </div>
+        <!-- Pagination -->
+        @if($faqs->hasPages())
+            <div class="px-6 py-4 border-t border-gray-200 bg-gray-50">
+                {{ $faqs->links() }}
+            </div>
+        @endif
     </div>
 </div>
 

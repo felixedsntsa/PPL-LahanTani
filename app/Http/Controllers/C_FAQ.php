@@ -9,7 +9,7 @@ class C_FAQ extends Controller
 {
     public function index()
     {
-        $faqs = FAQ::all();
+        $faqs = FAQ::simplePaginate(10);
         return view('admin.faq', compact('faqs'));
     }
 

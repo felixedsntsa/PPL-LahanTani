@@ -143,6 +143,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/edukasi', [C_Edukasi::class, 'index'])->name('admin.edukasi.index');
     Route::get('/admin/edukasi/create', [C_Edukasi::class, 'create'])->name('admin.edukasi.create');
     Route::post('/admin/edukasi', [C_Edukasi::class, 'store'])->name('admin.edukasi.store');
+    Route::get('/admin/edukasi/{id}', [C_Edukasi::class, 'show'])->name('admin.edukasi.show');
     Route::get('/admin/edukasi/{id}/edit', [C_Edukasi::class, 'edit'])->name('admin.edukasi.edit');
     Route::put('/admin/edukasi/{id}', [C_Edukasi::class, 'update'])->name('admin.edukasi.update');
     Route::delete('/admin/edukasi/{id}', [C_Edukasi::class, 'destroy'])->name('admin.edukasi.destroy');
