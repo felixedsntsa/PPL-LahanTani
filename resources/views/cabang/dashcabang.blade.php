@@ -7,31 +7,67 @@
     {{-- Hero Section --}}
     <section class="relative overflow-hidden bg-gradient-to-br from-green-50 to-white">
         <div class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12">
-            <div class="max-w-2xl" data-aos="fade-right">
+            <!-- Text Content -->
+            <div class="max-w-2xl order-2 md:order-1" data-aos="fade-right">
                 <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                    <span class="text-green-700">Lahan<span class="text-green-600">Tani</span></span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-800">Lahan<span class="font-extrabold">Tani</span></span><br>
                     <span class="text-gray-800">Manajemen Budidaya Melon</span><br>
-                    <span class="text-green-600">Cabang Anda</span>
+                    <span class="text-green-600 font-medium">Cabang Anda</span>
                 </h1>
                 <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                    Platform terintegrasi untuk memantau dan mengelola produksi melon di cabang Anda secara digital.
+                    Platform terintegrasi canggih untuk memantau, menganalisis, dan mengoptimalkan produksi melon di seluruh cabang perusahaan Anda.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ route('cabang.laporan') }}" class="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                        Pemantauan
+                    <a href="{{ route('cabang.laporan') }}" class="px-8 py-3.5 bg-gradient-to-r from-green-600 to-green-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                        </svg>
+                        Dashboard Pemantauan
                     </a>
-                    <a href="{{ route('cabang.jadwal.index') }}" class="px-8 py-3 border-2 border-green-600 text-green-700 font-medium rounded-lg hover:bg-green-50 transition-colors duration-300">
-                        Jadwal Kunjungan
+                    <a href="{{ route('cabang.hasilpanen') }}" class="px-8 py-3.5 border border-green-600 text-green-700 font-medium rounded-lg hover:bg-green-50 transition-all duration-300 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd" />
+                        </svg>
+                        Dashboard Hasil Panen
                     </a>
                 </div>
+
+                <!-- Stats Preview -->
+                <div class="mt-12 grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-green-600 font-bold text-2xl">24/7</div>
+                        <div class="text-gray-500 text-sm">Pemantauan dan Hasil Panen</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-green-600 font-bold text-2xl">100%</div>
+                        <div class="text-gray-500 text-sm">Akses Edukasi Gratis</div>
+                    </div>
+                </div>
             </div>
-            <div class="relative" data-aos="fade-left">
-                <img src="/asset/hero-melon.png" alt="Dashboard Preview" class="w-full max-w-xl rounded-xl shadow-2xl border-8 border-white transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-green-100 rounded-full opacity-70"></div>
-                <div class="absolute -top-6 -right-6 w-32 h-32 bg-yellow-100 rounded-full opacity-70"></div>
+
+            <!-- Image Content -->
+            <div class="relative order-1 md:order-2" data-aos="fade-left">
+                <div class="relative z-10 w-full max-w-xl rounded-2xl shadow-2xl border-8 border-white transform rotate-1 hover:rotate-0 transition-all duration-500 overflow-hidden">
+                    <img src="/asset/hero-melon.jpg" alt="Dashboard Preview" class="w-full h-auto">
+                    <!-- Overlay effect -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-green-900/10 to-transparent"></div>
+                </div>
+
+                <!-- Decorative elements -->
+                <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-green-100 rounded-full opacity-70 animate-pulse"></div>
+                <div class="absolute -top-6 -right-6 w-32 h-32 bg-yellow-100 rounded-full opacity-70 animate-pulse" style="animation-delay: 1s;"></div>
             </div>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+
+        <!-- Wave divider at bottom -->
+        <div class="absolute bottom-0 left-0 right-0 overflow-hidden">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-16">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="fill-green-100"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="fill-green-50"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="fill-white"></path>
+            </svg>
+        </div>
     </section>
 
     {{-- Fitur Section --}}

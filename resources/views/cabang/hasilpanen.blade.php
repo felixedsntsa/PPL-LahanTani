@@ -32,13 +32,13 @@
                             name="search"
                             value="{{ request('search') }}"
                             placeholder="Cari hasil panen..."
-                            class="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-150"
+                            class="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:ring-green-500 focus:border-green-500 transition duration-150"
                         >
                     </div>
                 </form>
 
                 <!-- Add Button -->
-                <button @click="open = true" class="flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg shadow-sm hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all transform hover:scale-[1.02]">
+                <button @click="open = true" class="flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full shadow-sm hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all transform hover:scale-[1.02]">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                     </svg>
@@ -381,7 +381,7 @@
             }
         });
     }
-    
+
     document.getElementById('hasilPanenForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const form = this;

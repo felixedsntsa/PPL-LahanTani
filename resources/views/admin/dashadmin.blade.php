@@ -71,80 +71,128 @@
     </section>
 
     {{-- Fitur Section --}}
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-6 mt-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Fitur Unggulan Platform</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Solusi lengkap untuk manajemen budidaya melon dari hulu ke hilir</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Dashboard Admin</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Manajemen lengkap untuk sistem budidaya melon</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Kartu 1 -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-1 bg-gradient-to-r from-yellow-400 to-yellow-500"></div>
-                    <div class="p-6">
-                        <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
-                            <img src="/asset/pemantauan.svg" class="w-7">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+                <!-- Kartu 1 - Pemantauan -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+                    <div class="p-1 bg-gradient-to-r from-amber-400 to-amber-500"></div>
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="w-14 h-14 bg-amber-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Pemantauan Real-time</h3>
-                        <p class="text-gray-600">Pantau kondisi lahan melon secara real-time dengan data sensor terintegrasi.</p>
-                        <a href="{{ route('admin.laporan') }}" class="mt-4 inline-flex items-center text-yellow-600 font-medium hover:text-yellow-700 transition-colors">
-                            Jelajahi Fitur
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Pemantauan</h3>
+                        <p class="text-gray-500 text-sm mb-4 flex-grow">Pantau kondisi lahan melon secara real-time</p>
+                        <a href="{{ route('admin.laporan') }}" class="mt-auto inline-flex items-center text-amber-600 font-medium hover:text-amber-700 transition-colors text-sm">
+                            Akses Fitur
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Kartu 2 -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-1 bg-gradient-to-r from-red-400 to-red-500"></div>
-                    <div class="p-6">
-                        <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                            <img src="/asset/calendar.svg" class="w-7">
+                <!-- Kartu 2 - Jadwal -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+                    <div class="p-1 bg-gradient-to-r from-rose-400 to-rose-500"></div>
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="w-14 h-14 bg-rose-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-rose-50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Manajemen Jadwal</h3>
-                        <p class="text-gray-600">Kelendar pintar untuk penjadwalan kunjungan dan perawatan tanaman.</p>
-                        <a href="{{ route('admin.jadwal.index') }}" class="mt-4 inline-flex items-center text-red-600 font-medium hover:text-red-700 transition-colors">
-                            Jelajahi Fitur
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Jadwal</h3>
+                        <p class="text-gray-500 text-sm mb-4 flex-grow">Kelola jadwal kunjungan dan perawatan</p>
+                        <a href="{{ route('admin.jadwal.index') }}" class="mt-auto inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors text-sm">
+                            Akses Fitur
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Kartu 3 -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                <!-- Kartu 3 - Panen -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
                     <div class="p-1 bg-gradient-to-r from-blue-400 to-blue-500"></div>
-                    <div class="p-6">
-                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                            <img src="/asset/bill.svg" class="w-7">
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Analisis Panen</h3>
-                        <p class="text-gray-600">Laporan hasil panen terstruktur dengan analisis produktivitas.</p>
-                        <a href="{{ route('admin.hasilpanen') }}" class="mt-4 inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors">
-                            Jelajahi Fitur
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Hasil Panen</h3>
+                        <p class="text-gray-500 text-sm mb-4 flex-grow">Analisis data hasil panen melon</p>
+                        <a href="{{ route('admin.hasilpanen') }}" class="mt-auto inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors text-sm">
+                            Akses Fitur
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Kartu 4 -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="400">
+                <!-- Kartu 4 - Keuangan -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
                     <div class="p-1 bg-gradient-to-r from-purple-400 to-purple-500"></div>
-                    <div class="p-6">
-                        <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                            <img src="/asset/money.svg" class="w-7">
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Analisis Keuangan</h3>
-                        <p class="text-gray-600">Visualisasi pendapatan dan analisis profitabilitas usaha budidaya.</p>
-                        <a href="{{ route('admin.hasilpenjualan.index') }}" class="mt-4 inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition-colors">
-                            Jelajahi Fitur
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Keuangan</h3>
+                        <p class="text-gray-500 text-sm mb-4 flex-grow">Laporan keuangan dan analisis profit</p>
+                        <a href="{{ route('admin.hasilpenjualan.index') }}" class="mt-auto inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition-colors text-sm">
+                            Akses Fitur
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu 5 - Edukasi -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+                    <div class="p-1 bg-gradient-to-r from-emerald-400 to-emerald-500"></div>
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="w-14 h-14 bg-emerald-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Edukasi</h3>
+                        <p class="text-gray-500 text-sm mb-4 flex-grow">Kelola materi edukasi budidaya</p>
+                        <a href="{{ route('admin.edukasi.index') }}" class="mt-auto inline-flex items-center text-emerald-600 font-medium hover:text-emerald-700 transition-colors text-sm">
+                            Akses Fitur
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu 6 - FAQ -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+                    <div class="p-1 bg-gradient-to-r from-indigo-400 to-indigo-500"></div>
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">FAQ</h3>
+                        <p class="text-gray-500 text-sm mb-4 flex-grow">Kelola pertanyaan yang sering diajukan</p>
+                        <a href="{{ route('admin.faq.index') }}" class="mt-auto inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700 transition-colors text-sm">
+                            Akses Fitur
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </a>
